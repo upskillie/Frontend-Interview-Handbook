@@ -55,9 +55,6 @@ We are building a Handbook frequently asked questions across tech companies.
 
 ### External references
 
-
-* https://bigfrontend.dev
-
 * https://leetcode.com/discuss/interview-question/742791/front-end-interview-questions/631397
 
 * https://www.acefrontend.com/challenges
