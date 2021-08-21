@@ -7,6 +7,7 @@
 - [Closure](#closure)
 - [Scope](#scope)
 - [Datatypes](#datatypes)
+- [Promises](#promises)
 - [Implementation/Coding Questions](#implementation-or-coding-questions)
 - [Design based open ended problems](#design-based-open-ended-problems)
 - [Theoretical Questions](#theoretical-questions)
@@ -314,6 +315,75 @@ console.log(s) // google, strings are immutable
   Suppose there is a `person2 = { firstName: "Sunil", lastName: "Chaudhary" }`. How can you call printFullName method (without modifying definition)
 
 
+# Promises
+
+Write a polyfill for Javascript Promise, you are not allowed to use native Promise APIs
+
+
+
+    // Promise format
+    // exec takes `resolve`, `response` as args
+      new Promise(exec).then().catch()
+      // Promise Polyfill
+      class Promise {
+
+      constructor(exec){
+
+          // Check if the exec is a function
+          if (typeof exec !== "function"){
+                throw new Error(`Expected function but received ${typeof exec}`)
+          }
+
+          this.status = "PENDING"
+          this.value = undefined; 
+          this.callBack = [];
+          this.errorCallBack = [];
+
+      // Resolve and Reject needs to have the context of the current promise as they will used inside the executor function.
+          this.resolve = this.resolve.bind(this);
+          this.reject = this.reject.bind(this);
+
+      // Pass resolve and reject as args
+          exec(this.resolve, this.reject)
+      }
+
+      resolve(value){
+          this.value = value;
+          this.status = "FULFILLED";
+
+      // Call all the callback functions in the queue on success 
+          this.callBack.forEach(callback =>{callback(this.value}}
+      }
+
+      reject(reason){
+          this.value = reason;
+          this.status = "REJECTED";
+
+      // Call all the callback functions in the error queue on failure 
+          this.errorCallBack.forEach(callback =>{callback(this.value}}
+      }
+
+      then(callback){
+
+      // Push the callback into success queue
+          this.callBack.push(callBack);
+          return this;
+      }
+      catch(callback){
+
+      // Push the callback into failure queue
+          this.errorCallBack.push(callBack);
+          return this;
+      }
+    }`
+
+This question was asked in an Amazon Interview
+###### References
+
+* https://levelup.gitconnected.com/understand-javascript-promises-by-building-a-promise-from-scratch-84c0fd855720
+
+
+
 # Implementation or Coding Questions
 
 - Create a search autosuggest in vanilla javascript. It should have a input bar where user can type and it should show a dropdown list of the results fetched after API call. Implement other optimizations such as debounce, caching etc.
@@ -331,6 +401,11 @@ console.log(s) // google, strings are immutable
 - Write javascript code to rotate a div in circle. Additional: Improve the code in a way such that one rotation is completed in certain specified time. Also, how can you modify the code to run for screens with different fps.
 
 - Write a function to do deep equality checks in objects
+
+- Implementation of debounce
+- Implementation of throttle
+- Implement Observable
+- Implement EvenEmitter
 
 - Suppose you have input like:
   ```javascript

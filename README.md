@@ -1,4 +1,9 @@
+
+# [UpSkillie](https://upskillie.com)
+
 # Frontend Interview Handbook
+
+
 
 We are building a Handbook frequently asked questions across tech companies.
 
@@ -42,6 +47,26 @@ We are building a Handbook frequently asked questions across tech companies.
 - [Puzzles](./Puzzles.md)
 
 - [Miscellaneous](./Miscellaneous.md)
+
+## Highly Recommended
+
+* https://bigfrontend.dev
+
+
+### External references
+
+
+* https://bigfrontend.dev
+
+* https://leetcode.com/discuss/interview-question/742791/front-end-interview-questions/631397
+
+* https://www.acefrontend.com/challenges
+
+* https://github.com/mattupham/front-end-Interview-Questions
+
+* https://github.com/h5bp/Front-end-Developer-Interview-Questions 
+
+* https://leetcode.com/discuss/interview-question/1074798/Frontend-Interview-Preparation-Resources-(1-4-years-Exp)
 
 
 This is currently under development and we will keep it updating this by collecting resources. We have borrowed from multiple sources while collecting this handbook. 
